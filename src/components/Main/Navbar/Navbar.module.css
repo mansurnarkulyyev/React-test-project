@@ -1,0 +1,68 @@
+.navbar {
+  margin-top: 115px;
+}
+
+.list {
+  margin: 0 auto;
+  width: 734px;
+}
+
+.topic {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  opacity: 0.5;
+  padding-bottom: 20px;
+}
+
+.item a {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 80px;
+  color: #ffffff;
+}
+
+.button {
+  padding: 18px 23px;
+  cursor: pointer;
+  line-height: 1.87;
+  display: -ms-flexbox;
+  display: flex;
+  letter-spacing: 0.06em;
+  border: 1px solid #8f00ff;
+  border-radius: 100px;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  width: 275px;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.78);
+}
+
+.button:hover {
+  background: #6a28f4;
+}
+
+.buttonText {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #ffffff;
+}
+
+.buttonImg {
+  padding-right: 10px;
+}

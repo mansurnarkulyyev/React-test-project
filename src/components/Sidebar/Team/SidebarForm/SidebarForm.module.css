@@ -1,0 +1,42 @@
+
+.sidebarForm {
+  margin-bottom: 30px;
+  width: 233px;
+  border-bottom: 1px solid #ffffff;
+}
+
+.sidebarInput {
+  background: none;
+  margin-top: 8px;
+  font-family: "Raleway";
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  color: #ffffff;
+  opacity: 0.5;
+  padding: 8px 0px 8px 0px;
+  border: none;
+}
+
+.sidebarSearch {
+  margin-top: 16px;
+  cursor: pointer;
+  float: right;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input[type="text"] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus,
+input:active {
+  outline: none;
+}

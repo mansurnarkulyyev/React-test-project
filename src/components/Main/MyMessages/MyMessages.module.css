@@ -1,0 +1,42 @@
+.dialogs {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+ul {
+  list-style: none;
+}
+
+.team .active {
+    background: #df05e2;
+  }
+  
+.teamItem {
+  width: 241px;
+  display: flex;
+  align-items: center;
+  background: #25283b;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.teamItem:hover {
+  background: #df05e2;
+}
+
+.teamImg {
+  padding: 4px;
+  margin-right: 10px;
+  width: 37px;
+}
+
+.teamText {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+}

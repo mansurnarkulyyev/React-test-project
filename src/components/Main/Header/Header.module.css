@@ -1,0 +1,60 @@
+/* HEADER */
+
+.header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  margin-left: auto;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.searchForm {
+  border-bottom: 1px solid #ffffff;
+  margin-left: 120px;
+}
+
+.searchIcon {
+  width: 35px;
+  height: 35px;
+  float: right;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.searchInput {
+  background: none;
+  padding: 8px 0px 8px 0px;
+  margin-top: 8px;
+  opacity: 0.5;
+  width: 596px;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #ffffff;
+}
+
+.profileOwner {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.ownerText {
+  padding-right: 15px;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+}
