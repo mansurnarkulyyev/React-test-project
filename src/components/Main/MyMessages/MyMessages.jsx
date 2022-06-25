@@ -32,7 +32,7 @@ const MyMessages= ()=>{
         <div className={st.dialogs}>
  <ul className={st.team}>  
 
-<DialogItem name='Frank Sinatra' id='1' src='./images/team/Ellipse 5-1.svg'/>
+{/* <DialogItem name='Frank Sinatra' id='1' src='./images/team/Ellipse 5-1.svg'/> */}
 
 
 
@@ -75,7 +75,7 @@ const MyMessages= ()=>{
       </ul>
 
       <div className={st.messages}>
-         <Messages message='odhbhbcjhbwehjeooooo Message'/>
+         {/* <Messages message='odhbhbcjhbwehjeooooo Message'/> */}
          <p className={st.message}>'ctuviouououbobunvegompijvwpoimjgvwpnen'</p>
          <p className={st.message}>'ctuviouououbobunvegompijvwpoimjgvwpnen'</p>
          <p className={st.message}>'ctuviouououbobunvegompijvwpoimjgvwpnen'</p>
