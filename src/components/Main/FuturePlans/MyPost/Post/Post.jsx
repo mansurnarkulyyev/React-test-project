@@ -2,7 +2,7 @@ import React from "react";
 
 import st from 'components/Main/FuturePlans/MyPost/Post/Post.module.css';
 
-const Post = () => {
+const Post = (props) => {
   return (
     <div>
       <div className={st.post}>
@@ -11,9 +11,10 @@ const Post = () => {
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfsglCp0hj5iMtVJiO0IqH3BbbAk1kyk3-MQ&usqp=CAU"
           alt="team first person"
         />
-        <p className={st.postText}>fyvghbkjljn</p>
+        <p className={st.postText}>{props.message}</p>
       </div>
       <span>Like: </span>
+      {props.likesCount}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import Header from "components/Main/Header/Header";
 import Navbar from "./Navbar/Navbar";
 import MyPast from "./MyPast/MyPast";
 import FuturePlans from "./FuturePlans/FuturePlans";
-import MyMessages from "./MyMessages/MyMessages";
+import Dialogs from "./MyMessages/MyMessages";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -16,12 +16,10 @@ const Main = (props) => {
       <Routes>
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/myPast" element={<MyPast />} />
-        <Route path="/future" element={<FuturePlans />} />
-        <Route path="/messages" element={<MyMessages />} />
-      
-       
+        <Route path="/future" element={<FuturePlans posts={props.posts}/>} />
+        <Route path="/messages" element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>} />
+         
       </Routes>
-
     </main>
   );
 };

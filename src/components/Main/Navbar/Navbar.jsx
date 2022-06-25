@@ -27,7 +27,7 @@ const Navbar = (props) => {
           </Link>
         </li>
         <li className={st.item}>
-          <Link to="/">
+          <Link to="/navbar">
             <img src="./images/icon/Vector.svg" alt="vector" />
             <h1 className={st.title}>What I Believe</h1>
           </Link>

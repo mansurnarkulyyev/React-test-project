@@ -1,88 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import DialogItem from "./Dialogs/Dialogs";
+import Messages from "./Messages/Messages";
 
-import st from 'components/Main/MyMessages/MyMessages.module.css';
+import st from "components/Main/MyMessages/MyMessages.module.css";
 
-const DialogItem = (props)=>{
-    let path = "/dialog/" + props.id;
-    return(
-        <Link to={path}>
-        <li className={st.teamItem + ' ' + st.active}>
-          <img
-            className={st.teamImg}
-            src={props.src}
-            alt="person"
-          />
-          <p className={st.teamText}>
-           {props.name}
-            </p>
-        </li>
-        </Link>
-    )
+
+const Dialogs = (props) => {
+ 
+  let dialogsElements = props.dialogsData.map((el) => (
+    <DialogItem name={el.name} id={el.id} src={el.src} />
+  ));
+
+  let messageElements = props.messagesData.map((el) => (
+    <Messages message={el.message} id={el.id}/>
+  ));
+
+  return (
+    <div className={st.dialogs}>
+      <ul className={st.team}>{dialogsElements}</ul>
+
+      <div className={st.messages}>{messageElements}</div>
+    </div>
+  );
 };
-
-const Messages =(props)=>{
-    return(
-        <p className={st.message}>{props.message}</p>
-    )
-}
-
-const MyMessages= ()=>{
-    return (
-        <div className={st.dialogs}>
- <ul className={st.team}>  
-
-<DialogItem name='Frank Sinatra' id='1' src='./images/team/Ellipse 5-1.svg'/>
-
-
-
-        <Link to="/dialog2">
-        <li className={st.teamItem}>
-          <img
-            className={st.teamImg}
-            src="./images/team/Ellipse 5-2.svg"
-            alt="person"
-          />
-          <p className={st.teamText}>
-          Harvey Specter
-          </p>
-        </li>
-        </Link>
-        <li className={st.teamItem}>
-          <img
-            className={st.teamImg}
-            src="./images/team/Ellipse 5-3.svg"
-            alt="person"
-          />
-          <p className={st.teamText}>Tony Stark</p>
-        </li>
-        <li className={st.teamItem}>
-          <img
-            className={st.teamImg}
-            src="./images/team/Ellipse 4.svg"
-            alt="person"
-          />
-          <p className={st.teamText}>Jordan Peterson</p>
-        </li>
-        <li className={st.teamItem}>
-          <img
-            className={st.teamImg}
-            src="./images/team/Ellipse 5.svg"
-            alt="person"
-          />
-          <p className={st.teamText}>Steve Rogers</p>
-        </li>
-      </ul>
-
-      <div className={st.messages}>
-         <Messages message='odhbhbcjhbwehjeooooo Message'/>
-         <p className={st.message}>'ctuviouououbobunvegompijvwpoimjgvwpnen'</p>
-         <p className={st.message}>'ctuviouououbobunvegompijvwpoimjgvwpnen'</p>
-         <p className={st.message}>'ctuviouououbobunvegompijvwpoimjgvwpnen'</p>
-         <p className={st.message}>'ctuviouououbobunvegompijvwpoimjgvwpnen'</p>
-      </div>
-        </div>
-       
-    )
-};
-export default MyMessages;
+export default Dialogs;
