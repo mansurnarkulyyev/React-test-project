@@ -12,8 +12,11 @@ const App = (props) => {
       <Sidebar />
       <Main
         posts={props.state.futurePage.posts}
+        newPostText={props.state.futurePage.newPostText}
         dialogsData={props.state.dialogsPage.dialogsData}
         messagesData={props.state.dialogsPage.messagesData}
+        addPost={props.addPost}
+        updateNewPostText={props.updateNewPostText}
       />
     </div>
   );

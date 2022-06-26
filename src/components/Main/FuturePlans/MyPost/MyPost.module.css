@@ -1,9 +1,9 @@
-.search {
+.textForm {
     border-bottom: 1px solid #FFFFFF;
     width: 496px;
   }
   
- .searchInput {
+ .textAr {
     background: none;
     padding: 8px 0px 8px 0px;
     margin-top: 8px;    
@@ -16,6 +16,12 @@
     line-height: 28px;
     color: #FFFFFF;
   }
+
+.textAr:focus,
+.textAr:active {
+  outline: none;
+}
+  
 
 .button {
     padding: 18px 23px;

@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "reder";
+
 let state = {
     futurePage:{
         posts: [
@@ -8,6 +10,7 @@ let state = {
             { id: "5", message: "abarahsr message", likesCount: 5 },
             { id: "6", message: "Hdnwjssr message", likesCount: 26 },
           ],
+          newPostText:'Project By Olga',
     },
     
     dialogsPage:{
@@ -27,6 +30,22 @@ let state = {
           ],
     },
        
+};
+
+export let addPost= ()=>{
+  let newPost = {
+    id:7,
+    message: state.futurePage.newPostText,
+    likesCount: 0
+  };
+state.futurePage.posts.push(newPost);
+state.futurePage.newPostText='';
+rerenderEntireTree(state);
+};
+
+export let updateNewPostText= (newText)=>{
+state.futurePage.newPostText = newText;
+rerenderEntireTree(state);
 };
 
 export default state;

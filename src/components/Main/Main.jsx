@@ -16,9 +16,26 @@ const Main = (props) => {
       <Routes>
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/myPast" element={<MyPast />} />
-        <Route path="/future" element={<FuturePlans posts={props.posts}/>} />
-        <Route path="/messages" element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>} />
-         
+        <Route
+          path="/future"
+          element={
+            <FuturePlans
+              posts={props.posts}
+              newPostText={props.newPostText}
+              addPost={props.addPost}
+              updateNewPostText={props.updateNewPostText}
+            />
+          }
+        />
+        <Route
+          path="/messages"
+          element={
+            <Dialogs
+              dialogsData={props.dialogsData}
+              messagesData={props.messagesData}
+            />
+          }
+        />
       </Routes>
     </main>
   );
