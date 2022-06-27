@@ -1,4 +1,6 @@
-import { rerenderEntireTree } from "reder";
+let rerenderEntireTree = () =>{
+  console.log('State Changed');
+}
 
 let state = {
     futurePage:{
