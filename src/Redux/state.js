@@ -1,8 +1,5 @@
-let rerenderEntireTree = () =>{
-  console.log('State Changed');
-}
-
-let state = {
+let store = {
+  _state: {
     futurePage:{
         posts: [
             { id: "1", message: "nayanayanaya some message", likesCount: 11 },
@@ -32,22 +29,52 @@ let state = {
           ],
     },
        
-};
+  },
+  _callSubscriber(){
+  console.log('State Changed');
+  },
 
-export let addPost= ()=>{
-  let newPost = {
+  
+  getSate() {
+    return this._state
+  }, 
+   subscribe(observer) {
+  this._callSubscriber = observer;
+  },
+   
+   
+  // addPost(){
+  // let newPost = {
+  //   id:7,
+  //   message: this._state.futurePage.newPostText,
+  //   likesCount: 0
+  // };
+  // this._state.futurePage.posts.push(newPost);
+  // this._state.futurePage.newPostText='';
+  // this._callSubscriber(this._state);
+  // },
+  // updateNewPostText(newText){
+  // this._state.futurePage.newPostText = newText;
+  // this._callSubscriber(this._state);
+  // },
+
+  dispatch(action) { //{type: "ADD-POST"}
+    if (action.type === "ADD-POST") {
+      let newPost = {
     id:7,
-    message: state.futurePage.newPostText,
+    message: this._state.futurePage.newPostText,
     likesCount: 0
   };
-state.futurePage.posts.push(newPost);
-state.futurePage.newPostText='';
-rerenderEntireTree(state);
-};
+  this._state.futurePage.posts.push(newPost);
+  this._state.futurePage.newPostText='';
+  this._callSubscriber(this._state);
+    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+       this._state.futurePage.newPostText = action.newText;
+       this._callSubscriber(this._state);
+    }
+  },
+}
 
-export let updateNewPostText= (newText)=>{
-state.futurePage.newPostText = newText;
-rerenderEntireTree(state);
-};
 
-export default state;
+export default store;
+window.store = store;

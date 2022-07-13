@@ -32,5 +32,5 @@ body {
 .wrap {
   margin: 0;
   height: 100vh;
-  display: flex;
+  /* display: flex; */
 }

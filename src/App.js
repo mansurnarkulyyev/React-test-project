@@ -15,8 +15,7 @@ const App = (props) => {
         newPostText={props.state.futurePage.newPostText}
         dialogsData={props.state.dialogsPage.dialogsData}
         messagesData={props.state.dialogsPage.messagesData}
-        addPost={props.addPost}
-        updateNewPostText={props.updateNewPostText}
+        dispatch={props.dispatch}
       />
     </div>
   );

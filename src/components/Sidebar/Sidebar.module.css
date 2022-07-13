@@ -2,11 +2,16 @@
 .sidebar {
   background-color: rgba(0, 0, 0, 0.78);
   width: 280 px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 100%;
   padding: 34px 20px 30px 18px;
   display: flex;
   flex-direction: column;
   z-index: 2;
+  position: fixed;
+  top: 0;
+    left: 0;
+      overflow-x: hidden;
 }
 
 

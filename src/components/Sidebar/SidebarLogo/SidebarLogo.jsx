@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../images/Logo.svg"
 import st from "components/Sidebar/SidebarLogo/SidebarLogo.module.css";
 
 const SidebarLogo = () => {
@@ -10,7 +11,7 @@ const SidebarLogo = () => {
       </div>
 
       <div className={st.logo}>
-        <img src="./images/Logo.svg" alt="Logo" />
+        <img src={logo} alt="Logo" />
       </div>
     </div>
   );

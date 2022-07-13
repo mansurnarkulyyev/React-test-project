@@ -4,21 +4,22 @@ import Post from "components/Main/FuturePlans/MyPost/Post/Post";
 import st from "components/Main/FuturePlans/MyPost/MyPost.module.css";
 
 const MyPost = (props) => {
-  
+
   let postElement = props.posts.map((post) => (
     <Post message={post.message} likesCount={post.likesCount} />
   ));
 
-let newPostElement = React.createRef();
+  let newPostElement = React.createRef();
 
-let addPost = () => {
-  props.addPost();
-}
+  let addPost = () => {
+    props.dispatch({ type: "ADD-POST" });
+  }
 
-let onPostChange = ()=>{
-  let text = newPostElement.current.value;
-  props.updateNewPostText(text)
-}
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    let action = { type: "UPDATE-NEW-POST-TEXT", newText: text };
+    props.dispatch(action);
+  }
 
   return (
     <div>
@@ -36,8 +37,8 @@ let onPostChange = ()=>{
       <button className={st.button} onClick={addPost}>
         <p className={st.buttonText}>Add New Post</p>
       </button>
-      
-        {postElement}
+
+      {postElement}
 
     </div>
   );

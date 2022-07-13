@@ -1,5 +1,7 @@
 /* MAIN */
 .main {
-  width: 1526px;
+  /* width: 1526px; */
   z-index: 2;
+  margin-left: 280px;
+  
 }
