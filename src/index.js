@@ -8,7 +8,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
-import  { Provider } from 'StoreContext';
+import { Provider } from 'react-redux';
+// import  { Provider } from 'StoreContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById("root")); 
@@ -16,7 +17,7 @@ let rerenderEntireTree = () => {
   root.render(
     <React.StrictMode>
       <BrowserRouter>
-        <Provider value={store}>
+        <Provider store={store}>
              <App  />
         </Provider>
       </BrowserRouter>
