@@ -1,7 +1,7 @@
-import store from 'Redux/state';
+import store from 'Redux/redux-store';
 // import { rerenderEntireTree } from 'reder';
 // import * as serviceWorker from './serwiceWorker'
-import React from "react";
+import React from "react"; 
 import ReactDOM from "react-dom/client";
 // import { addPost, updateNewPostText } from "Redux/state";
 
@@ -18,14 +18,16 @@ let rerenderEntireTree = (state) => {
         <App
           state={state}
           dispatch={store.dispatch.bind(store)}
-          // addPost={store.addPost.bind(store)}
-          // updateNewPostText={store.updateNewPostText.bind(store)}
+          store={store}
         />
       </BrowserRouter>
     </React.StrictMode>
   );
 };
 
-rerenderEntireTree(store.getSate());
+rerenderEntireTree(store.getState());
 
-store.subscribe(rerenderEntireTree)
+store.subscribe(() => {
+  let state = store.getState();
+  rerenderEntireTree(state); //когда стейт измениться вызываем эту функцию иначе стейт будет андефайнед
+})

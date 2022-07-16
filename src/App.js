@@ -4,6 +4,7 @@ import BgVideo from "components/BgVideo/BgVideo";
 import Sidebar from "components/Sidebar/Sidebar";
 import Main from "components/Main/Main";
 import st from "./App.module.css";
+// import store from "Redux/state";
 
 const App = (props) => {
   return (
@@ -11,11 +12,12 @@ const App = (props) => {
       <BgVideo />
       <Sidebar />
       <Main
-        posts={props.state.futurePage.posts}
-        newPostText={props.state.futurePage.newPostText}
-        dialogsData={props.state.dialogsPage.dialogsData}
-        messagesData={props.state.dialogsPage.messagesData}
+      //  futurePage={props.state.futurePage}
+        // newPostText={props.state.futurePage}
+      //  state={props.state.dialogsPage}
+        // messagesData={props.state.dialogsPage.messagesData}
         dispatch={props.dispatch}
+        store={props.store}
       />
     </div>
   );

@@ -1,7 +1,6 @@
 import React from "react";
-import MyPost from "components/Main/FuturePlans/MyPost/MyPost";
-
 import st from "components/Main/FuturePlans/FuturePlans.module.css";
+import MyPostContainer from "./MyPost/MyPostContainer";
 
 const FuturePlans = (props) => {
   return (
@@ -9,11 +8,8 @@ const FuturePlans = (props) => {
       <div className={st.listMenu}>
         <p className={st.topic}>Your Posts</p>
 
-        <MyPost
-          posts={props.posts}
-          newPostText={props.newPostText}
-          addPost={props.addPost}
-          updateNewPostText={props.updateNewPostText}
+        <MyPostContainer
+          store={props.store}
         />
       </div>
     </div>

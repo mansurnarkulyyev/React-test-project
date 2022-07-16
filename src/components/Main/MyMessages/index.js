@@ -1,1 +1,1 @@
-export { default } from "./MyMessage";
+export { default } from "./Dialogs";

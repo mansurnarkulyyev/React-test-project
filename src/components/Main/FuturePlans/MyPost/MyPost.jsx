@@ -1,24 +1,27 @@
 import React from "react";
 import Post from "components/Main/FuturePlans/MyPost/Post/Post";
+// import { addPostActionCreator, updateNewPostText } from "Redux/future-reducer";
 
 import st from "components/Main/FuturePlans/MyPost/MyPost.module.css";
 
-const MyPost = (props) => {
 
+const MyPost = (props) => {
+  // let state = props.store.getState().futurePage;
   let postElement = props.posts.map((post) => (
     <Post message={post.message} likesCount={post.likesCount} />
   ));
 
   let newPostElement = React.createRef();
 
-  let addPost = () => {
-    props.dispatch({ type: "ADD-POST" });
+  let onAddPost = () => {
+    props.addPost()
+    // let action = addPostActionCreator()
+    // props.store.dispatch(addPostActionCreator());
   }
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    let action = { type: "UPDATE-NEW-POST-TEXT", newText: text };
-    props.dispatch(action);
+    props.updateNewPostText(text);
   }
 
   return (
@@ -34,7 +37,7 @@ const MyPost = (props) => {
         />
       </form>
 
-      <button className={st.button} onClick={addPost}>
+      <button className={st.button} onClick={onAddPost}>
         <p className={st.buttonText}>Add New Post</p>
       </button>
 

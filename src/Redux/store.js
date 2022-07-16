@@ -1,3 +1,12 @@
+import dialogsReducer from "./dialogs-reducer";
+import futureReducer from "./future-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
+// const ADD_POST = "ADD-POST";
+// const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+// const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY";
+// const SEND_MESSAGE = "SEND_MESSAGE";
+  
 let store = {
   _state: {
     futurePage:{
@@ -26,52 +35,53 @@ let store = {
             { id: "3", message: "Hahahqxwahwcfacwfwhahsr message" },
             { id: "4", message: "Hahqxahahaqcwefchahsr message" },
             { id: "5", message: "Hahahahahahsr message" },
-          ],
+      ],
+      newMessageBody:"",
     },
-       
+
+    sideBar:{},
   },
   _callSubscriber(){
   console.log('State Changed');
   },
-
   
-  getSate() {
-    return this._state
+  getState() {
+    return this._state;
   }, 
-   subscribe(observer) {
-  this._callSubscriber = observer;
+
+  subscribe(observer) {
+  this._callSubscriber = observer; // publisher - observer паттерн наблюдатель как онклик
   },
    
-   
-  // addPost(){
-  // let newPost = {
+
+  dispatch(action) { //{type: "ADD-POST"}
+    this._state.futurePage = futureReducer(this._state.futurePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.sideBar = sidebarReducer(this._state.sideBar, action);
+    this._callSubscriber(this._state);
+
+     
+  //   if (action.type === ADD_POST) {
+  //     let newPost = {
   //   id:7,
   //   message: this._state.futurePage.newPostText,
   //   likesCount: 0
   // };
   // this._state.futurePage.posts.push(newPost);
-  // this._state.futurePage.newPostText='';
+  // this._state.futurePage.newPostText ='';
   // this._callSubscriber(this._state);
-  // },
-  // updateNewPostText(newText){
-  // this._state.futurePage.newPostText = newText;
-  // this._callSubscriber(this._state);
-  // },
-
-  dispatch(action) { //{type: "ADD-POST"}
-    if (action.type === "ADD-POST") {
-      let newPost = {
-    id:7,
-    message: this._state.futurePage.newPostText,
-    likesCount: 0
-  };
-  this._state.futurePage.posts.push(newPost);
-  this._state.futurePage.newPostText='';
-  this._callSubscriber(this._state);
-    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-       this._state.futurePage.newPostText = action.newText;
-       this._callSubscriber(this._state);
-    }
+  //   } else if (action.type === UPDATE_NEW_POST_TEXT) {
+  //      this._state.futurePage.newPostText = action.newText;
+  //      this._callSubscriber(this._state);
+  //   } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+  //     this._state.dialogsPage.newMessageBody = action.body;
+  //     this._callSubscriber(this._state);
+  //   } else if (action.type === SEND_MESSAGE) {
+  //     let body = this._state.dialogsPage.newMessageBody;
+  //     this._state.dialogsPage.newMessageBody = '';
+  //     this._state.dialogsPage.messagesData.push( { id: "6", message: body })
+  //     this._callSubscriber(this._state);
+  //   }
   },
 }
 

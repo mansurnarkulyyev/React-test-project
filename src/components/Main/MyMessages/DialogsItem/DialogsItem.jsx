@@ -1,6 +1,6 @@
 import React from "react";
 
-import st from "components/Main/MyMessages/Dialogs/Dialogs.module.css";
+import st from "./DialogsItem.module.css";
 
 import { Link } from "react-router-dom";
 
