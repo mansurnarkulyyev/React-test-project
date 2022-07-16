@@ -6,7 +6,7 @@ import Main from "components/Main/Main";
 import st from "./App.module.css";
 // import store from "Redux/state";
 
-const App = (props) => {
+const App = () => {
   return (
     <div className={st.wrap}>
       <BgVideo />
@@ -16,8 +16,8 @@ const App = (props) => {
         // newPostText={props.state.futurePage}
       //  state={props.state.dialogsPage}
         // messagesData={props.state.dialogsPage.messagesData}
-        dispatch={props.dispatch}
-        store={props.store}
+        // dispatch={props.dispatch}
+        // store={props.store}
       />
     </div>
   );

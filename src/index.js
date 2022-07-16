@@ -8,26 +8,25 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
+import  { Provider } from 'StoreContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById("root")); 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = () => {
   root.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App
-          state={state}
-          dispatch={store.dispatch.bind(store)}
-          store={store}
-        />
+        <Provider value={store}>
+             <App  />
+        </Provider>
       </BrowserRouter>
     </React.StrictMode>
   );
 };
 
-rerenderEntireTree(store.getState());
+rerenderEntireTree();
 
 store.subscribe(() => {
-  let state = store.getState();
-  rerenderEntireTree(state); //когда стейт измениться вызываем эту функцию иначе стейт будет андефайнед
+  // let state = store.getState();
+  rerenderEntireTree(); //когда стейт измениться вызываем эту функцию иначе стейт будет андефайнед
 })

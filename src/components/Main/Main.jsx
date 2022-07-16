@@ -13,7 +13,7 @@ import st from "components/Main/Main.module.css";
 import DialogsContainer from "./MyMessages/DialogsContainer";
 // import store from "Redux/state";
 
-const Main = (props) => {
+const Main = () => {
   return (
     <main className={st.main}>
       {/* <Sidebar /> */}
@@ -26,10 +26,10 @@ const Main = (props) => {
           element={
             // render={() =>
             <FuturePlans
-              // posts={props.futurePage.posts}
-              // futurePage={props.state.futurePage}
-              // dispatch={props.dispatch}
-              store={props.store}
+            // posts={props.futurePage.posts}
+            // futurePage={props.state.futurePage}
+            // dispatch={props.dispatch}
+            // store={props.store}
             />
           }
         />
@@ -38,9 +38,9 @@ const Main = (props) => {
           element={
             // render={() =>
             <DialogsContainer
-              // state={props.state.dialogsPage}
-              // dispatch={props.dispatch}
-              store={props.store}
+            // state={props.state.dialogsPage}
+            // dispatch={props.dispatch}
+            // store={props.store} 
             // dialogsData={props.state.dialogsData}
             // messagesData={props.state.messagesData}
             />
