@@ -8,7 +8,7 @@ import st from "components/Main/FuturePlans/MyPost/MyPost.module.css";
 const MyPost = (props) => {
   // let state = props.store.getState().futurePage;
   let postElement = props.posts.map((post) => (
-    <Post message={post.message} likesCount={post.likesCount} />
+    <Post key={post.id} message={post.message} likesCount={post.likesCount} />
   ));
 
   let newPostElement = React.createRef();

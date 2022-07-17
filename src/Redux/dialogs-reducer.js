@@ -22,27 +22,28 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.body;
-            return state;
-        case SEND_MESSAGE:
+      case UPDATE_NEW_MESSAGE_BODY:
+         return {
+          ...state,
+          newMessageBody: action.body,
+          // dialogsData: [...state.dialogsData],
+        };
+    
+      case SEND_MESSAGE:
             let body = state.newMessageBody;
-            state.newMessageBody = '';
-            state.messagesData.push({ id: "6", message: body })
-            return state;
+          return {
+           ...state,
+           newMessageBody: '',
+           messagesData: [...state.messagesData, { id: "6", message: body }],
+           //слево это старый массив а слево то что будем запушить 
+           //вместо того что бы запушить после запятое допишем объект.
+           // а если в начале надо добавить что то. то тогда 
+           //в левой стороне допишем
+          //messagesData.push({ id: "6", message: body })
+        };
         default:
             return state;
     }
-
-    // if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-    //     state.newMessageBody = action.body;
-    // } else if (action.type === SEND_MESSAGE) {
-    //     let body = state.newMessageBody;
-    //     state.newMessageBody = '';
-    //     state.messagesData.push({ id: "6", message: body })
-    // }
-
-    // return state;
 };
 
 export const sendMessageCreator = () => ({ type: SEND_MESSAGE });

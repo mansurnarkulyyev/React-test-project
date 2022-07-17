@@ -13,7 +13,7 @@ import { Provider } from 'react-redux';
 
 
 const root = ReactDOM.createRoot(document.getElementById("root")); 
-let rerenderEntireTree = () => {
+// let rerenderEntireTree = () => {
   root.render(
     <React.StrictMode>
       <BrowserRouter>
@@ -23,11 +23,11 @@ let rerenderEntireTree = () => {
       </BrowserRouter>
     </React.StrictMode>
   );
-};
+// };
 
-rerenderEntireTree();
+// rerenderEntireTree();
 
-store.subscribe(() => {
-  // let state = store.getState();
-  rerenderEntireTree(); //когда стейт измениться вызываем эту функцию иначе стейт будет андефайнед
-})
+// store.subscribe(() => {
+//   // let state = store.getState();
+//   rerenderEntireTree(); //когда стейт измениться вызываем эту функцию иначе стейт будет андефайнед
+// })
