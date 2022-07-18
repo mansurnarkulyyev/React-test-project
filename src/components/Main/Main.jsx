@@ -6,11 +6,13 @@ import FuturePlans from "./FuturePlans/FuturePlans";
 // import Dialogs from "./MyMessages/Dialogs";
 import NotFoundPage from "./NotFoundPage";
 // import Sidebar from "components/Sidebar";
+import DialogsContainer from "./MyMessages/DialogsContainer";
+// import Users from "./Users";
 
 import { Routes, Route } from "react-router-dom";
 
 import st from "components/Main/Main.module.css";
-import DialogsContainer from "./MyMessages/DialogsContainer";
+import UsersContainer from "./Users/usersContainer";
 // import store from "Redux/state";
 
 const Main = () => {
@@ -46,6 +48,10 @@ const Main = () => {
             />
           }
         />
+        <Route
+          path="/users"
+          element={<UsersContainer />} />
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </main >

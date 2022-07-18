@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import PlusPhoto from "../../images/icon/plus.svg"
 import st from "components/Main/Navbar/Navbar.module.css";
 
 const Navbar = (props) => {
@@ -53,7 +53,7 @@ const Navbar = (props) => {
         <button className={st.button}>
           <p className={st.buttonText}>Add New Topic</p>
           <img
-            src="./images/icon/plus.svg"
+            src={PlusPhoto}
             alt="add topic"
             className={st.buttonImg}
           />

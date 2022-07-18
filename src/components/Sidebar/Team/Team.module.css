@@ -39,8 +39,10 @@ ul {
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  color: #e001e2;
   display: flex;
+}
+.teamAddText{
+  color: #e001e2; 
 }
 
 .teamAdd {
