@@ -21,64 +21,42 @@ import userPhoto from '../../images/download.png'
 // }
 
 const Users = (props) => {
-    // const [user, setUsers] = useState([]);
+    let getUsers = () => {
+        if (props.users.length === 0) {
+            // props.setUsers(
+            //     [
+            //         {
+            //             "id": 1,
+            //             "name": "Leanne Graham",
+            //             "address": { "city": "Gwenborough", "geo": { "lat": "-37.3159" } },
+            //             "website": "hildegard.org",
+            //             "company": { "name": "Romaguera-Crona" },
+            //             photoUrl: "https://www.mobisafar.com/images/testimonial/dummy-profile.png"
+            //         }
+            //     ]
+            // )
 
-    // const createUser = (newUser) => {
-    //     setUsers(...user, newUser);
-    // }
-    // console.log(props);
-    if (props.users.length === 0) {
-        // props.setUsers(
-        //     [
-        //         {
-        //             "id": 1,
-        //             "name": "Leanne Graham",
-        //             "address": { "city": "Gwenborough", "geo": { "lat": "-37.3159" } },
-        //             "website": "hildegard.org",
-        //             "company": { "name": "Romaguera-Crona" },
-        //             photoUrl: "https://www.mobisafar.com/images/testimonial/dummy-profile.png"
-        //         },
-        //         {
-        //             "id": 1,
-        //             "name": "Leanne Graham",
-        //             "address": { "city": "Gwenborough", "geo": { "lat": "-37.3159" } },
-        //             "website": "hildegard.org",
-        //             "company": { "name": "Romaguera-Crona" },
-        //             photoUrl: "https://www.mobisafar.com/images/testimonial/dummy-profile.png"
-        //         }
+            axios.get('https://jsonplaceholder.typicode.com/users')
+                .then(response => {
+                    // debugger
+                    // console.log(response.data);
+                    // console.log(props.setUsers);
 
-        //     ]
-        // )
+                    props.setUsers(response.data
+                        // [
+                        //     // {
+                        //     //     "id": 1,
+                        //     //     "name": "Leanne Graham",
+                        //     //     "address": { "city": "Gwenborough", "geo": { "lat": "-37.3159" } },
+                        //     //     "website": "hildegard.org",
+                        //     //     "company": { "name": "Romaguera-Crona" },
+                        //     //     photoUrl: "https://www.mobisafar.com/images/testimonial/dummy-profile.png"
+                        //     // },
 
-
-        axios.get('https://jsonplaceholder.typicode.com/users')
-            .then(response => {
-                // debugger
-                // console.log(response.data);
-                // console.log(props.setUsers);
-
-                props.setUsers(response.data
-                    // [
-                    //     // {
-                    //     //     "id": 1,
-                    //     //     "name": "Leanne Graham",
-                    //     //     "address": { "city": "Gwenborough", "geo": { "lat": "-37.3159" } },
-                    //     //     "website": "hildegard.org",
-                    //     //     "company": { "name": "Romaguera-Crona" },
-                    //     //     photoUrl: "https://www.mobisafar.com/images/testimonial/dummy-profile.png"
-                    //     // },
-                    //     // {
-                    //     //     "id": 1,
-                    //     //     "name": "Leanne Graham",
-                    //     //     "address": { "city": "Gwenborough", "geo": { "lat": "-37.3159" } },
-                    //     //     "website": "hildegard.org",
-                    //     //     "company": { "name": "Romaguera-Crona" },
-                    //     //     photoUrl: "https://www.mobisafar.com/images/testimonial/dummy-profile.png"
-                    //     // }
-
-                    // ]
-                )
-            })
+                        // ]
+                    )
+                })
+        }
     }
 
     return (<div>
@@ -111,8 +89,8 @@ const Users = (props) => {
 
         }
         </ul>
-        <button className={st.button} >
-            <p className={st.buttonText}>Add New Topic</p>
+        <button className={st.button} onClick={getUsers}>
+            <p className={st.buttonText}>Add New Users</p>
             <img
                 src={addPlus}
                 alt="add topic"

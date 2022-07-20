@@ -1,6 +1,7 @@
 // import React from "react";
 import { /*followAC*/ setUsersAC, /*unFollowAC */ } from "Redux/users-reducer";
-import Users from "./Users";
+// import Users from "./Users";
+import Users from "./UsersClasses";
 
 const { connect } = require("react-redux");
 
