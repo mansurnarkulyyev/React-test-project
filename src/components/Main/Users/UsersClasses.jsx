@@ -6,19 +6,19 @@ import userPhoto from '../../images/download.png'
 
 
 class Users extends React.Component {
-    constructor(props) {
-        super(props);
 
+    componentDidMount() {
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
-                props.setUsers(response.data)
+                this.props.setUsers(response.data)
             })
     }
+
     render() {
         return (<div>
             <ul className={st.users}>{
-                // users приходит сюда от usersContainer / users: state.usersPage.users, и мапаем
-                this.props.users.map(user =>//в usersContainer/mapStateToProps мы ключом указали uzers 
+                // users приходит сюда от usersContainer / users: state.usersPage.users, и мапаем мы ключом указали uzers
+                this.props.users.map(user =>//пропсы в классах приходит через this под копотом.
                     <li key={user.id} className={st.item}>
                         <img src={userPhoto} alt="John" className={st.img} />
                         <h1 className={st.userName}>{user.name}</h1>
@@ -31,7 +31,6 @@ class Users extends React.Component {
                         <button className={st.cardBtn}>Follow</button>
                     </li>
                 )
-
             }
             </ul>
             <button className={st.button}>
@@ -45,7 +44,5 @@ class Users extends React.Component {
         );
     }
 }
-
-
 
 export default Users;
