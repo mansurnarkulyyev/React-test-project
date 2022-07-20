@@ -10,7 +10,7 @@ let reducers = combineReducers({
     sidebar: sidebarReducer,
     usersPage: usersReducer, //usersReducer приходит с users-reducer.js
 })
-
+//futurePage, dialogspage,sidebar,usersPage, это все ветки от глобального
 let store = createStore(reducers);
 
 window.store = store;

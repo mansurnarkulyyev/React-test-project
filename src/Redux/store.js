@@ -18,7 +18,7 @@ let store = {
             { id: "5", message: "abarahsr message", likesCount: 5 },
             { id: "6", message: "Hdnwjssr message", likesCount: 26 },
           ],
-          newPostText:'Project By Olga',
+          newPostText:'Project By ...',
     },
     
     dialogsPage:{
