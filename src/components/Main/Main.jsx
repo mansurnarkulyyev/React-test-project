@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "components/Main/Header/Header";
 import Navbar from "./Navbar/Navbar";
-import MyPast from "./MyPast/MyPast";
+// import MyPast from "./MyPast/MyPast";
 import FuturePlans from "./FuturePlans/FuturePlans";
 // import Dialogs from "./MyMessages/Dialogs";
 import NotFoundPage from "./NotFoundPage";
@@ -13,6 +13,7 @@ import { Routes, Route } from "react-router-dom";
 
 import st from "components/Main/Main.module.css";
 import UsersContainer from "./Users/usersContainer";
+import MyPastContainer from "./MyPast/MyPastContainer";
 // import store from "Redux/state";
 
 const Main = () => {
@@ -22,7 +23,7 @@ const Main = () => {
       <Header />
       <Routes>
         <Route path="/navbar" exact element={<Navbar />} />
-        <Route path="/myPast" element={<MyPast />} />
+        <Route path="/myPast" element={<MyPastContainer />} />
         <Route
           path="/future"
           element={

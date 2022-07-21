@@ -15,12 +15,17 @@ let initialState = {
         // photoUrl: "https://www.mobisafar.com/images/testimonial/dummy-profile.png"}
         // 
     ],
+    _limit: 5,
+    totalCountUsers: 0,
+    _page: 1
+
 }
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         // case FOLLOW:
         //     return {
         //         ...state,
+        //// users:[...state.users]
         //         users: state.users.map(user => {
         //             if (user.id === action.userId) {
         //                 return { ...user, followed: true }

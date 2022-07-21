@@ -22,13 +22,9 @@
     width: 100%
 }
 
-/* .card {
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    font-family: arial;
-    background-color: rgba(0, 0, 0, 0.78);
-} */
+.page{
+    font-weight: 900;
+}
 
 .userName{
     color: #ffffff;

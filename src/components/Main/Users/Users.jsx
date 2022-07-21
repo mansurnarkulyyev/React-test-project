@@ -58,7 +58,6 @@ const Users = (props) => {
                 })
         }
     }
-
     return (<div>
         <ul className={st.users}>{
             // users приходит сюда от usersContainer / users: state.usersPage.users, и мапаем

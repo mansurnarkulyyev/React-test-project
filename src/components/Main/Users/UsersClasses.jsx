@@ -8,6 +8,7 @@ import userPhoto from '../../images/download.png'
 class Users extends React.Component {
 
     componentDidMount() {
+        // axios.get(`https://jsonplaceholder.typicode.com/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
         axios.get('https://jsonplaceholder.typicode.com/users')
             .then(response => {
                 this.props.setUsers(response.data)
@@ -15,7 +16,23 @@ class Users extends React.Component {
     }
 
     render() {
+
+        let pagesCount = Math.ceil(this.props.totalCountUsers / this.props._limit);
+        //обшие количество пользователей делим на кол стр, приходит к нас из users-reducer.js
+        let pages = [];
+
+        for (let i = 1; i <= pagesCount; i += 1) {
+            pages.push(i);
+        }
+
         return (<div>
+            <div>
+                {pages.map(page => {
+                    return <span className={this.props._page === page && st.page}>{page}</span>
+                })}
+            </div>
+
+
             <ul className={st.users}>{
                 // users приходит сюда от usersContainer / users: state.usersPage.users, и мапаем мы ключом указали uzers
                 this.props.users.map(user =>//пропсы в классах приходит через this под копотом.

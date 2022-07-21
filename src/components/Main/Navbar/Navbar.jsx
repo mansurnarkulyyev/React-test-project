@@ -18,7 +18,7 @@ const Navbar = (props) => {
         <li className={st.item}>
           <Link to="/myPast">
             <img src={vector} alt="vector" />
-            <h1 className={st.title}>My Past</h1>
+            <h1 className={st.title}>My Past Plans</h1>
           </Link>
         </li>
         <li className={st.item}>

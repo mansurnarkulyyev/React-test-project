@@ -7,14 +7,15 @@ const { connect } = require("react-redux");
 
 let mapStateToProps = (state) => { // принимает глобальный стейт
     return {
-        users: state.usersPage.users  // возврашает новый объект с данными которые нам ну
+        users: state.usersPage.users,  // возврашает новый объект с данными которые нам ну
         //usersPage с redux-store приходит
         //как в примере ниже
         //         let reducers = combineReducers({
         //             usersPage: usersReducer,
         //         })
-        // let store = createStore(reducers)
-
+        pageSize: state.usersPage.pageSize,
+        totalCountUsers: state.usersPage.totalCountUsers,// upageSize и totalCountUsers с redux-store приходит
+        currentPage: state.usersPage.currentPage
     }
 }
 
