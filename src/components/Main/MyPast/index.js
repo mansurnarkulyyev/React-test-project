@@ -1,1 +1,1 @@
-export { default } from "./MyPast";
+export { default } from "./MyPastApiComponent";
