@@ -1,8 +1,16 @@
 import React from "react";
-import { completedAC, setCurrentPageAC, setTodosAC, setTodosTotalCountAC, toggleIsFetchingAC, unCompletedAC } from "Redux/my-past-reducer";
+import {
+    completed,
+    setCurrentPage,
+    setTodos,
+    setTodosTotalCount,
+    toggleIsFetching,
+    uncompleted,
+} from "Redux/my-past-reducer";
 import axios from 'axios';
 import MyPast from "./MyPast";
-import st from "./MyPast.module.css"
+
+import Preloader from "components/commons/Preloader";
 
 const { connect } = require("react-redux");
 
@@ -43,11 +51,11 @@ class MyPastContainer extends React.Component {
 
     render() {
         return <>
-            {this.props.isFetching ? <div className={st.loader}></div> : null}
+            {this.props.isFetching ? <Preloader /> : null}
             <MyPast totalTodosCount={this.props.totalTodosCount}
                 pageSize={this.props.pageSize}
                 currentPage={this.props.currentPage}
-                onPageChanged={this.props.onPageChanged}
+                onPageChanged={this.onPageChanged}
                 todos={this.props.todos}
                 completed={this.props.completed}
                 uncompleted={this.props.uncompleted}
@@ -68,29 +76,44 @@ let mapStateToProps = (state) => { // принимает глобальный с
 }
 
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        completed: (todoId) => {
-            dispatch(completedAC(todoId))//completedAC(todoId) это и есть action
-        },
-        uncompleted: (todoId) => {
-            dispatch(unCompletedAC(todoId))
-        },
-        setTodos: (todos) => {
-            dispatch(setTodosAC(todos))
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber))
-        },
-        setTodosTotalCount: (totalCount) => {
-            dispatch(setTodosTotalCountAC(totalCount))
-        },
-        toggleIsFetching: (totalCount) => {
-            dispatch(toggleIsFetchingAC(totalCount))
-        }
+// 1- let mapDispatchToProps = (dispatch) => {
+//     return {
+//         completed: (todoId) => {
+//             dispatch(completedAC(todoId))//completedAC(todoId) это и есть action
+//         },
+//         uncompleted: (todoId) => {
+//             dispatch(unCompletedAC(todoId))
+//         },
+//         setTodos: (todos) => {
+//             dispatch(setTodosAC(todos))
+//         },
+//         setCurrentPage: (pageNumber) => {
+//             dispatch(setCurrentPageAC(pageNumber))
+//         },
+//         setTodosTotalCount: (totalCount) => {
+//             dispatch(setTodosTotalCountAC(totalCount))
+//         },
+//         toggleIsFetching: (totalCount) => {
+//             dispatch(toggleIsFetchingAC(totalCount))
+//         }
 
-    }
-}
+//     }
+// }
+// 2- делаем деструктуризайию и передаем как второй объект на connet вместо mapDispatchToProps{
+//     completed: completedAC,
+//     uncompleted: unCompletedAC,
+//     setTodos: setTodosAC,
+//     setCurrentPage: setCurrentPageAC,
+//     setTodosTotalCount: setTodosTotalCountAC,
+//     toggleIsFetching: toggleIsFetchingAC,
+//     }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(MyPastContainer);
+export default connect(mapStateToProps,
+    {
+        completed,
+        uncompleted,
+        setTodos,
+        setCurrentPage,
+        setTodosTotalCount,
+        toggleIsFetching,
+    })(MyPastContainer);

@@ -59,11 +59,11 @@ const todosReducer = (state = initialState, action) => {
             return state;
 }
 };
-export const completedAC = (todoId) => ({ type: COMPLETED, todoId }); //AC - ActionCreator
-export const unCompletedAC = (todoId) => ({ type: UN_COMPLETED, todoId });
-export const setTodosAC = (todos) => ({ type: SET_TODOS, todos });
-export const setCurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
-export const setTodosTotalCountAC = (totalTodosCount) => ({ type: SET_TODOS_TOTAL_COUNT, count: totalTodosCount });
-export const toggleIsFetchingAC = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
+export const completed = (todoId) => ({ type: COMPLETED, todoId }); //completed AC - ActionCreator
+export const uncompleted = (todoId) => ({ type: UN_COMPLETED, todoId });//uncompletedAc
+export const setTodos = (todos) => ({ type: SET_TODOS, todos });//setTodosAc
+export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });//setCurrentPageAc
+export const setTodosTotalCount = (totalTodosCount) => ({ type: SET_TODOS_TOTAL_COUNT, count: totalTodosCount });//setTodosTotalCountAc
+export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });//toggleIsFetchingAC
 
 export default todosReducer; 
