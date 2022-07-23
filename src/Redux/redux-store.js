@@ -4,6 +4,7 @@ import futureReducer from "./future-reducer";
 import sidebarReducer from "./sidebar-reducer";
 import todosReducer from "./my-past-reducer";
 import usersReducer from "./users-reducer";
+import commentsReducer from "./future-reducer";
 
 let reducers = combineReducers({
     futurePage: futureReducer,
@@ -11,6 +12,7 @@ let reducers = combineReducers({
     sidebar: sidebarReducer,
     usersPage: usersReducer, //usersReducer приходит с users-reducer.js
     todosPage: todosReducer,
+    commentsPage: commentsReducer,
 })
 //futurePage, dialogspage,sidebar,usersPage, это все ветки от глобального
 let store = createStore(reducers);

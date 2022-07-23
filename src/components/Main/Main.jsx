@@ -2,7 +2,7 @@ import React from "react";
 import Header from "components/Main/Header/Header";
 import Navbar from "./Navbar/Navbar";
 // import MyPast from "./MyPast/MyPast";
-import FuturePlans from "./FuturePlans/FuturePlans";
+// import FuturePlans from "./FuturePlans/FuturePlans";
 // import Dialogs from "./MyMessages/Dialogs";
 import NotFoundPage from "./NotFoundPage";
 // import Sidebar from "components/Sidebar";
@@ -14,6 +14,8 @@ import { Routes, Route } from "react-router-dom";
 import st from "components/Main/Main.module.css";
 import UsersContainer from "./Users/usersContainer";
 import MyPastContainer from "./MyPast/MyPastContainer";
+import FuturePlansContainer from "./FuturePlans/FuturePlansContainer";
+// import FuturePlans from "./FuturePlans";
 // import store from "Redux/state";
 
 const Main = () => {
@@ -25,10 +27,10 @@ const Main = () => {
         <Route path="/navbar" exact element={<Navbar />} />
         <Route path="/myPast" element={<MyPastContainer />} />
         <Route
-          path="/future"
+          path="/future/*"
           element={
             // render={() =>
-            <FuturePlans
+            <FuturePlansContainer
             // posts={props.futurePage.posts}
             // futurePage={props.state.futurePage}
             // dispatch={props.dispatch}
@@ -36,6 +38,15 @@ const Main = () => {
             />
           }
         />
+        <Route
+          path="/future/:userId?"
+          element={
+            <FuturePlansContainer
+            />
+          }
+        />
+
+        {/* <Route path='/future' element={<FuturePlansContainer />} /> */}
         <Route
           path="/messages"
           element={

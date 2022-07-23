@@ -2,6 +2,7 @@ import React from 'react';
 import st from "./Users.module.css";
 import addPlus from "../../images/icon/plus.svg";
 import userPhoto from "../../images/download.png";
+import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalTodosCount / props.pageSize);
@@ -25,7 +26,9 @@ return (
                 // users приходит сюда от usersContainer / users: state.usersPage.users, и мапаем мы ключом указали uzers
                 props.users.map(user =>//пропсы в классах приходит через this под копотом.
                     <li key={user.id} className={st.item}>
+                        <NavLink to={'./../future/' + user.id}>
                         <img src={userPhoto} alt="John" className={st.img} />
+                        </NavLink>
                         <h1 className={st.userName}>{user.name}</h1>
                         <p className={st.web}>{user.website}</p>
                         <div className={st.location}>
