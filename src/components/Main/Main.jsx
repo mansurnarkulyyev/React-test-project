@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "components/Main/Header/Header";
+// import Header from "components/Main/Header/Header";
 import Navbar from "./Navbar/Navbar";
 // import MyPast from "./MyPast/MyPast";
 // import FuturePlans from "./FuturePlans/FuturePlans";
@@ -15,6 +15,7 @@ import st from "components/Main/Main.module.css";
 import UsersContainer from "./Users/usersContainer";
 import MyPastContainer from "./MyPast/MyPastContainer";
 import FuturePlansContainer from "./FuturePlans/FuturePlansContainer";
+import HeaderContainer from "./Header/HeaderContainer";
 // import FuturePlans from "./FuturePlans";
 // import store from "Redux/state";
 
@@ -22,7 +23,7 @@ const Main = () => {
   return (
     <main className={st.main}>
       {/* <Sidebar /> */}
-      <Header />
+      <HeaderContainer />
       <Routes>
         <Route path="/navbar" exact element={<Navbar />} />
         <Route path="/myPast" element={<MyPastContainer />} />
@@ -39,7 +40,7 @@ const Main = () => {
           }
         />
         <Route
-          path="/future/:userId?"
+          path="/future/:userId"
           element={
             <FuturePlansContainer
             />

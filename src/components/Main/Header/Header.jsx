@@ -3,7 +3,7 @@ import chevronRight from "../../images/icon/ChevronRight.svg"
 import vectorSearch from "../../images/icon/Vector-search.svg";
 import ProfilePhoto from "../../images/ProfilePhoto.svg";
 import st from "components/Main/Header/Header.module.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = (props) => {
   return (
@@ -36,6 +36,10 @@ const Header = (props) => {
       <div className={st.profileOwner}>
         <img src={ProfilePhoto} alt="profilePhoto" />
         <p className={st.ownerText}>Frank Sinatra</p>
+      </div>
+      <div className={st.sign}>
+        <NavLink to={'/login'}>Log in</NavLink>
+
       </div>
     </header>
   );

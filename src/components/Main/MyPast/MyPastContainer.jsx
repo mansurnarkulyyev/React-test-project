@@ -3,7 +3,7 @@ import {
     completed,
     setCurrentPage,
     setTodos,
-    setTodosTotalCount,
+    setTotalTodosCount,
     toggleIsFetching,
     uncompleted,
 } from "Redux/my-past-reducer";
@@ -20,16 +20,11 @@ class MyPastContainer extends React.Component {
         this.props.toggleIsFetching(true);
         axios.get(`https://jsonplaceholder.typicode.com/todos?_page=${this.props.currentPage}&_limit=${this.props.pageSize}`)
             .then(response => {
-                // console.log(response.data);
+                // debugger
                 this.props.toggleIsFetching(false);
-
                 this.props.setTodos(response.data);
-                // console.log(response.data.headers);
-                this.props.setTodosTotalCount(response.data.totalCount)
-                // this.props.setTodosTotalCount(response.headers['x - total - count'])
-
-                // console.log(response.);
-
+                // console.log(response.headers['x-total-count']);
+                this.props.setTotalTodosCount(response.headers['x-total-count'])
             })
     }
 
@@ -44,7 +39,7 @@ class MyPastContainer extends React.Component {
             .then(response => {
                 this.props.toggleIsFetching(false);
 
-                this.props.setTodos(response.headers['x - total - count']);
+                this.props.setTodos(response.data);
             })
     }
 
@@ -65,13 +60,16 @@ class MyPastContainer extends React.Component {
 };
 
 
-let mapStateToProps = (state) => { // принимает глобальный стейт
+let mapStateToProps = (state) => {
+    // принимает глобальный стейт
     return {
         todos: state.todosPage.todos,  // возврашает новый объект с данными которые нам ну
         pageSize: state.todosPage.pageSize,
         totalTodosCount: state.todosPage.totalTodosCount,// pageSize и totalCountUsers с redux-store приходит
         currentPage: state.todosPage.currentPage,
-        isFetching: state.todosPage.isFetching
+        isFetching: state.todosPage.isFetching,
+        completed: state.todosPage.completed,
+        uncompleted: state.todosPage.uncompleted
     }
 }
 
@@ -114,6 +112,6 @@ export default connect(mapStateToProps,
         uncompleted,
         setTodos,
         setCurrentPage,
-        setTodosTotalCount,
+        setTotalTodosCount,
         toggleIsFetching,
     })(MyPastContainer);

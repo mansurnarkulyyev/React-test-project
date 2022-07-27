@@ -1,3 +1,7 @@
+.selected {
+    font-weight: bold;
+}
+
 .users{
     display: flex;
     margin-left: 20px;
@@ -98,7 +102,6 @@
 .buttonImg {
     padding-right: 10px;
 }
-
 
 
 

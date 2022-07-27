@@ -3,8 +3,9 @@ const COMPLETED = "COMPLETED";
 const UN_COMPLETED = "UN_COMPLETED";
 const SET_TODOS = "SET_TODOS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
-const SET_TODOS_TOTAL_COUNT = "SET_TODOS_TOTAL_COUNT";
+const SET_TOTAL_TODOS_COUNT = "SET_TOTAL_TODOS_COUNT";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+
 
 let initialState = {
 
@@ -49,8 +50,8 @@ const todosReducer = (state = initialState, action) => {
         case SET_CURRENT_PAGE: {
             return { ...state, currentPage: action.currentPage };
         }
-        case SET_TODOS_TOTAL_COUNT: {
-            return { ...state, totalTodosCount: action.count };
+        case SET_TOTAL_TODOS_COUNT: {
+            return { ...state, totalTodosCount: action._limit };
         }
         case TOGGLE_IS_FETCHING: {
             return { ...state, isFetching: action.isFetching };
@@ -63,7 +64,7 @@ export const completed = (todoId) => ({ type: COMPLETED, todoId }); //completed 
 export const uncompleted = (todoId) => ({ type: UN_COMPLETED, todoId });//uncompletedAc
 export const setTodos = (todos) => ({ type: SET_TODOS, todos });//setTodosAc
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });//setCurrentPageAc
-export const setTodosTotalCount = (totalTodosCount) => ({ type: SET_TODOS_TOTAL_COUNT, count: totalTodosCount });//setTodosTotalCountAc
+export const setTotalTodosCount = (totalTodosCount) => ({ type: SET_TOTAL_TODOS_COUNT, _limit: totalTodosCount  });//setTodosTotalCountAc
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });//toggleIsFetchingAC
 
 export default todosReducer; 

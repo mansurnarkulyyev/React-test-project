@@ -5,7 +5,7 @@ import userPhoto from "../../images/download.png";
 import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
-    let pagesCount = Math.ceil(props.totalTodosCount / props.pageSize);
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
         //обшие количество пользователей делим на кол стр, приходит к нас из users-reducer.js
 
     let pages = [];
@@ -16,8 +16,8 @@ const Users = (props) => {
 return (
     <div>
         <div>
-          {pages.map((page, index) => {
-            return <span key={index} className={props.currentPage === page ? st.selected : undefined}
+          {pages.map((page) => {
+            return <span className={props.currentPage  === page && st.selected }
               onClick={(e) => { props.onPageChanged(page); }}>{page}</span>
           })}
 
@@ -37,13 +37,26 @@ return (
                             <p className={st.address}>{user.address.geo.lat}</p>
                         </div>
                        {user.followed
-                               ? <button onClick={() => {
-                                     props.unfollow(user.id)
+                            ? <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                                 props.unfollow(user.id)//cюда санки приходит из user-reducer
+                                // if (props.followingInProgress.some(id => id === user.id)) {
+                                //     props.toggleFollowingProgress(true, user.id);
+                                //      props.unfollow(user.id)
+                                // }
                             //    follow сюда придет с userContainer/ mapDispatchToProps 
                                 }} className={st.cardBtn}>Unfollow</button>
-                               : <button onClick={() => { props.follow(user.id) }}
+                            : <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                                 props.follow(user.id)//cюда санки приходит из user-reducer
+                                // if (props.followingInProgress.some(id => id === user.id)) {
+                                //     props.toggleFollowingProgress(false, user.id);
+                                //      props.follow(user.id)
+                                // }
+                            }}
                                    className={st.cardBtn}>Follow</button>
-                           } 
+                        } 
+                        
+
+
                     </li>
                 )
             }

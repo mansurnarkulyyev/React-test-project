@@ -1,7 +1,7 @@
 import React from 'react';
 import edit from "../../images/icon/edit 1.svg"
 import st from "components/Main/MyPast/MyPast.module.css";
-
+// import axios from 'axios';
 
 const MyPast = (props) => {
      let pagesCount = Math.ceil(props.totalTodosCount / props.pageSize);
@@ -11,18 +11,14 @@ const MyPast = (props) => {
       pages.push(i);
     //   if (i === 20) break;
     }
-    // let curP = this.props.currentPage;
-    // let curPF = ((curP - 5) < 0) ? 0 : curP - 5;
-    // let curPL = curP + 5;
-    // let slicedPages = pages.slice(curPF, curPL);
-
+  
 return (
       <div>
-        <div>
-          {pages.map((page, index) => {
-
+    <div>
+      {/* <span className={st.selected}>12345</span> */}
+          {pages.map(page => {
             // return <span className={true ? st.selected }>{todo}</span>
-            return <span key={index} className={props.currentPage === page ? st.selected : undefined}
+            return <span className={props.currentPage  === page && st.selected }
               onClick={(e) => { props.onPageChanged(page); }}>{page}</span>
           })}
 
@@ -44,12 +40,48 @@ return (
                 {todo.title}
               </p>
               {todo.completed
-                ? <button onClick={() => {
-                  props.uncompleted(todo.id)
+               ? <button onClick={() => {
+                  
+                //                axios.delete(`https://jsonplaceholder.typicode.com/todos/${todo.id}`, {
+                //     withCredentials: true,
+                //  headers: {
+                //    "API-KEY": "blabla"
+                //  }
+                //   })
+                //    .then(response => {
+                //     //  debugger
+                //      console.log(response.data);
+                //      if (response.data.completed === false) {
+                                      props.uncompleted(todo.id);
+                //      }
+                //  }) 
                   //  follow сюда придет с userContainer/ mapDispatchToProps 
-                }} className={st.cardBtn}>uncompleted</button>
-                : <button onClick={() => { props.completed(todo.id) }}
-                  className={st.cardBtn}>Completed</button>
+                 
+               }} className={st.cardBtn}>
+                 uncompleted</button>
+               
+               : <button onClick={() => {
+              //  debugger
+                 
+              
+            //      axios.post(`https://jsonplaceholder.typicode.com/todos/${todo.id}`, {}, {
+            //         withCredentials: true,
+                //  headers: {
+                //    "API-KEY": "blabla"
+                //  }
+            //       })
+            //        .then(response => {
+            //         //  debugger
+            //          console.log(response.data.id);
+            //          if (response.data.completed === true) {
+                     props.completed(todo.id)
+                       
+            //          }
+            //     // this.props.toggleIsFetching(false);
+            // }) 
+               }}
+                 className={st.cardBtn}>
+                 Completed</button>
               }
             </li>
           )

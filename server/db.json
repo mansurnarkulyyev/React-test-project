@@ -1,0 +1,40 @@
+{
+    "users":[
+      {
+        "data": {
+            "id": 1,
+            "login":"free",
+            "email": "yo@gmail.com"
+        },
+        "messages": [],
+        "resultCode":0
+      },
+      {
+        "data": {
+            "id": 2,
+            "login":"friday",
+            "email": "kayo@gmail.com1"
+        },
+        "messages": [],
+        "resultCode":0
+      },
+      {
+        "data": {
+            "id": 3,
+            "login":"free team",
+            "email": "mayo@gmail.com2"
+        },
+        "messages": [],
+        "resultCode":0
+      },
+      {
+        "data": {
+            "id": 4,
+            "login":"free bad",
+            "email": "iyo@gmail.com3"
+        },
+        "messages": [],
+        "resultCode":0
+      }
+    ]
+}
