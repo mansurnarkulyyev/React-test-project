@@ -1,5 +1,7 @@
 // import React from "react";
+import { withAuthNavigate } from "hoc/withAuthNavigate";
 import { connect } from "react-redux";
+// import { Navigate } from "react-router-dom";
 
 import { sendMessageCreator, updateNewMessageBodyCreator } from "Redux/dialogs-reducer";
 // import StoreContext from "StoreContext";
@@ -30,7 +32,7 @@ import Dialogs from "./Dialogs";
 let mapStateToProps = (state) => {
     return {
         dialogsPage: state.dialogsPage,
-        auth: state.auth.isAuth,
+        // auth: state.auth.isAuth,
     }
 };
 
@@ -45,7 +47,14 @@ let mapDispatchToProps = (dispatch) => {
     }
 };
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+let AuthNavigateComponent = withAuthNavigate(Dialogs); //из hoc пришли
+
+//     (props) => {
+//     // if (this.props.isAuth) return <Navigate to={'/login'} />
+//     return <Dialogs {...props} />
+// }
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthNavigateComponent);
 
 
 export default DialogsContainer;

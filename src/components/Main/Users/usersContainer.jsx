@@ -13,6 +13,7 @@ import {
 import Users from "./Users";
 // import axios from 'axios';
 import Preloader from "components/commons/Preloader";
+import { withAuthNavigate } from "hoc/withAuthNavigate";
 // import { usersAPI } from "api/api";
 
 
@@ -85,7 +86,7 @@ let mapStateToProps = (state) => { // принимает глобальный с
 
 
 
-export default connect(mapStateToProps, {
+export default withAuthNavigate(connect(mapStateToProps, {
     follow,
     unfollow,
     // setUsers,
@@ -94,4 +95,4 @@ export default connect(mapStateToProps, {
     // toggleIsFetching,
     toggleFollowingProgress,
     getUsers,
-})(UsersContainer);
+})(UsersContainer));
