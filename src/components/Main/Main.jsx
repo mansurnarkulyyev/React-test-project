@@ -29,6 +29,10 @@ const Main = () => {
         <Route path="/navbar" exact element={<Navbar />} />
         <Route path="/myPast" element={<MyPastContainer />} />
         <Route
+          path="/login"
+          element={<LoginPage />} />
+
+        <Route
           path="/future/*"
           element={
             // render={() =>
@@ -65,9 +69,7 @@ const Main = () => {
         <Route
           path="/users"
           element={<UsersContainer />} />
-        <Route
-          path="/login"
-          element={<LoginPage />} />
+
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

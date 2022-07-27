@@ -10,6 +10,7 @@ import {
     useParams,
 } from "react-router-dom";
 import { withAuthNavigate } from "hoc/withAuthNavigate";
+import { compose } from "redux";
 // import { usersAPI } from "api/api";
 
 // wrapper to use react router's v6 hooks in class component(to use HOC pattern, like in router v5)
@@ -52,14 +53,28 @@ class FuturePlansContainer extends React.Component {
     }
 };
 
-let AuthNavigateComponent = withAuthNavigate(FuturePlansContainer)//из hoc  вернется
-
 
 let mapStateToProps = (state) => ({
     comments: state.commentsPage.comments, //все информации берем от store.getState().usersPage.users и там сидит все users
 })
 
+export default compose(
+    withAuthNavigate,
+    connect(mapStateToProps, {
+        getCommentsProfile,
+    }),
+    withRouter,
+)(FuturePlansContainer);
 
-export default connect(mapStateToProps, {
-    getCommentsProfile,
-})(withRouter(AuthNavigateComponent));
+
+// let AuthNavigateComponent = withAuthNavigate(FuturePlansContainer)//из hoc  вернется
+
+
+// let mapStateToProps = (state) => ({
+//     comments: state.commentsPage.comments, //все информации берем от store.getState().usersPage.users и там сидит все users
+// })
+
+
+// export default connect(mapStateToProps, {
+//     getCommentsProfile,
+// })(withRouter(AuthNavigateComponent));

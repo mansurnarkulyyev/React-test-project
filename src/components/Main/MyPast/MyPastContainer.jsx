@@ -12,6 +12,7 @@ import {
 import MyPast from "./MyPast";
 
 import Preloader from "components/commons/Preloader";
+import { compose } from "redux";
 // import { usersAPI } from "api/api";
 
 const { connect } = require("react-redux");
@@ -110,13 +111,16 @@ let mapStateToProps = (state) => {
 //     toggleIsFetching: toggleIsFetchingAC,
 //     }
 
-export default connect(mapStateToProps,
-    {
-        completed,
-        uncompleted,
-        getTodos,
-        getTodos2,
-        setCurrentPage,
-        setTotalTodosCount,
-        toggleIsFetching,
-    })(MyPastContainer);
+export default compose(
+    connect(mapStateToProps,
+        {
+            completed,
+            uncompleted,
+            getTodos,
+            getTodos2,
+            setCurrentPage,
+            setTotalTodosCount,
+            toggleIsFetching,
+        })
+)(MyPastContainer);
+

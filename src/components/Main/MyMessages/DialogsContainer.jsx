@@ -1,6 +1,7 @@
 // import React from "react";
-import { withAuthNavigate } from "hoc/withAuthNavigate";
+// import { withAuthNavigate } from "hoc/withAuthNavigate";
 import { connect } from "react-redux";
+import { compose } from "redux";
 // import { Navigate } from "react-router-dom";
 
 import { sendMessageCreator, updateNewMessageBodyCreator } from "Redux/dialogs-reducer";
@@ -47,14 +48,22 @@ let mapDispatchToProps = (dispatch) => {
     }
 };
 
-let AuthNavigateComponent = withAuthNavigate(Dialogs); //из hoc пришли
-
-//     (props) => {
-//     // if (this.props.isAuth) return <Navigate to={'/login'} />
-//     return <Dialogs {...props} />
-// }
-
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthNavigateComponent);
 
 
-export default DialogsContainer;
+export default compose(
+    // withAuthNavigate,
+    connect(mapStateToProps, mapDispatchToProps),
+)(Dialogs);
+
+
+// let AuthNavigateComponent = withAuthNavigate(Dialogs); //из hoc пришли
+
+// //     (props) => {
+// //     // if (this.props.isAuth) return <Navigate to={'/login'} />
+// //     return <Dialogs {...props} />
+// // }
+
+// const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthNavigateComponent);
+
+
+// export default DialogsContainer;
