@@ -1,3 +1,5 @@
+import { usersAPI } from "api/api";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_COMMENTS_PROFILE = "SET_COMMENTS_PROFILE";
@@ -64,6 +66,11 @@ const futureReducer = (state = initialState, action) => {
 
 export const addPostActionCreator = () => ({ type: ADD_POST });
 export const setCommentsProfile = (comments) => ({ type: SET_COMMENTS_PROFILE ,comments});//users из action придет
+export const getCommentsProfile = (userId) => (dispatch) => { //createThunk
+     usersAPI.getComments(userId).then(response => {
+            dispatch(setCommentsProfile(response.data));
+        })
+};
 export const updateNewPostText = (text) =>
   ({ type: UPDATE_NEW_POST_TEXT, newText: text });
 

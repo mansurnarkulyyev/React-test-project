@@ -13,7 +13,7 @@ getUsers(currentPage = 1, pageSize = 5 ) {
 return instance.get(`users?_page=${currentPage}&_limit=${pageSize}`)
     .then(response => {
         return response; //response вернет promise
-    })
+      })
     },
     // follow(userId) {
     // return instance.post(http...)
@@ -21,7 +21,21 @@ return instance.get(`users?_page=${currentPage}&_limit=${pageSize}`)
     // unfollow(userId) {
     // return instance.delete(http...)
     // }
+    getComments(userId) {
+        return instance.get(`comments/` + userId);
+    },
+    getUsersForHeader() {
+        return instance.get(`users`);
+    },
+    
+    getTodos(currentPage = 1 , pageSize = 12) {
+        return instance.get(`todos?_page=${currentPage}&_limit=${pageSize}`);
+    },
+    getTodos2(pageNumber = 1 , pageSize = 12) {
+        return instance.get(`todos?_page=${pageNumber}&_limit=${pageSize}`);
+    }
 }
+
 
 // export default usersAPI;
 

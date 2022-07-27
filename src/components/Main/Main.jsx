@@ -16,6 +16,7 @@ import UsersContainer from "./Users/usersContainer";
 import MyPastContainer from "./MyPast/MyPastContainer";
 import FuturePlansContainer from "./FuturePlans/FuturePlansContainer";
 import HeaderContainer from "./Header/HeaderContainer";
+import LoginPage from "components/Login";
 // import FuturePlans from "./FuturePlans";
 // import store from "Redux/state";
 
@@ -64,6 +65,9 @@ const Main = () => {
         <Route
           path="/users"
           element={<UsersContainer />} />
+        <Route
+          path="/login"
+          element={<LoginPage />} />
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

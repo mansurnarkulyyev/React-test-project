@@ -20,7 +20,7 @@ let initialState = {
         // photoUrl: "https://www.mobisafar.com/images/testimonial/dummy-profile.png"}
         // 
     ],
-    pageSize: 3,
+    pageSize: 2,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,

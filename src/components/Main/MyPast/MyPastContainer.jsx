@@ -2,15 +2,17 @@ import React from "react";
 import {
     completed,
     setCurrentPage,
-    setTodos,
+    getTodos,
+    getTodos2,
     setTotalTodosCount,
     toggleIsFetching,
     uncompleted,
 } from "Redux/my-past-reducer";
-import axios from 'axios';
+// import axios from 'axios';
 import MyPast from "./MyPast";
 
 import Preloader from "components/commons/Preloader";
+// import { usersAPI } from "api/api";
 
 const { connect } = require("react-redux");
 
@@ -18,14 +20,16 @@ class MyPastContainer extends React.Component {
 
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        axios.get(`https://jsonplaceholder.typicode.com/todos?_page=${this.props.currentPage}&_limit=${this.props.pageSize}`)
-            .then(response => {
-                // debugger
-                this.props.toggleIsFetching(false);
-                this.props.setTodos(response.data);
-                // console.log(response.headers['x-total-count']);
-                this.props.setTotalTodosCount(response.headers['x-total-count'])
-            })
+
+        this.props.getTodos()
+        // usersAPI.getTodos(this.props.currentPage, this.props.pageSize)
+        //     .then(response => {
+        //         // debugger
+        //         this.props.toggleIsFetching(false);
+        //         this.props.setTodos(response.data);
+        //         // console.log(response.headers['x-total-count']);
+        //         this.props.setTotalTodosCount(response.headers['x-total-count'])
+        //     })
     }
 
 
@@ -35,12 +39,12 @@ class MyPastContainer extends React.Component {
 
         // console.log(this.props.setCurrentPage(pageNumber));
         // debugger
-        axios.get(`https://jsonplaceholder.typicode.com/todos?_page=${pageNumber}&_limit=${this.props.pageSize}`)
-            .then(response => {
-                this.props.toggleIsFetching(false);
-
-                this.props.setTodos(response.data);
-            })
+        this.props.getTodos2();
+        // usersAPI.getTodos2(pageNumber)
+        //     .then(response => {
+        //         this.props.toggleIsFetching(false);
+        //         this.props.setTodos(response.data);
+        //     })
     }
 
 
@@ -110,7 +114,8 @@ export default connect(mapStateToProps,
     {
         completed,
         uncompleted,
-        setTodos,
+        getTodos,
+        getTodos2,
         setCurrentPage,
         setTotalTodosCount,
         toggleIsFetching,

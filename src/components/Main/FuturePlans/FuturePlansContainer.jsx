@@ -1,6 +1,6 @@
 import React from "react";
-import axios from 'axios';
-import { setCommentsProfile } from "Redux/future-reducer";
+// import axios from 'axios';
+import { getCommentsProfile } from "Redux/future-reducer";
 import FuturePlans from "./FuturePlans";
 import { connect } from "react-redux";
 
@@ -9,6 +9,7 @@ import {
     useNavigate,
     useParams,
 } from "react-router-dom";
+// import { usersAPI } from "api/api";
 
 // wrapper to use react router's v6 hooks in class component(to use HOC pattern, like in router v5)
 function withRouter(Component) {
@@ -34,19 +35,14 @@ class FuturePlansContainer extends React.Component {
         if (!userId) {
             return <h1>Comments not found!(:</h1>
         }
-
-        // debugger
-        // this.props.toggleIsFetching(true);
-        axios.get(`https://jsonplaceholder.typicode.com/comments/` + userId)
-            .then(response => {
-                // debugger 
-                // this.props.toggleIsFetching(false);
-
-                this.props.setCommentsProfile(response.data);
-            })
+        this.props.getCommentsProfile(userId);
+        // usersAPI.getComments(userId).then(response => {
+        //     // this.props.toggleIsFetching(false);
+        //     // this.props.toggleIsFetching(true);
+        //     this.props.setCommentsProfile(response.data);
+        // })
     }
     render() {
-        // debugger
         return (
             <FuturePlans {...this.props}//Profile
                 comments={this.props.comments}//передаем в </FutureInfo>
@@ -61,5 +57,5 @@ let mapStateToProps = (state) => ({
 
 
 export default connect(mapStateToProps, {
-    setCommentsProfile,
+    getCommentsProfile,
 })(withRouter(FuturePlansContainer));

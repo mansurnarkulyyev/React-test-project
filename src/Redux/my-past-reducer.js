@@ -1,3 +1,4 @@
+import { usersAPI } from "api/api";
 
 const COMPLETED = "COMPLETED";
 const UN_COMPLETED = "UN_COMPLETED";
@@ -15,7 +16,7 @@ let initialState = {
 // { "userId": 1, "id": 3, "title": "fugiat veniam minus", "completed": false }
         //    
     ],
-    pageSize: 6,
+    pageSize: 12,
     totalTodosCount: 0,
     currentPage: 1,
     isFetching:false
@@ -63,6 +64,21 @@ const todosReducer = (state = initialState, action) => {
 export const completed = (todoId) => ({ type: COMPLETED, todoId }); //completed AC - ActionCreator
 export const uncompleted = (todoId) => ({ type: UN_COMPLETED, todoId });//uncompletedAc
 export const setTodos = (todos) => ({ type: SET_TODOS, todos });//setTodosAc
+export const getTodos = (currentPage, pageSize) => (dispatch) => {
+     usersAPI.getTodos(currentPage, pageSize)
+            .then(response => {
+                dispatch(toggleIsFetching(false));
+                dispatch(setTodos(response.data));
+                dispatch(setTotalTodosCount(response.headers['x-total-count']))
+            })
+};
+export const getTodos2 = (pageNumber) => (dispatch) => {
+    usersAPI.getTodos2(pageNumber)
+            .then(response => {
+                dispatch(toggleIsFetching(false));
+                dispatch(setTodos(response.data));
+            })
+};
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });//setCurrentPageAc
 export const setTotalTodosCount = (totalTodosCount) => ({ type: SET_TOTAL_TODOS_COUNT, _limit: totalTodosCount  });//setTodosTotalCountAc
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });//toggleIsFetchingAC
