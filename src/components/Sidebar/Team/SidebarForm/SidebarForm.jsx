@@ -7,7 +7,7 @@ const SidebarForm = (props) => {
     return (
         <div>
             <form className={st.sidebarForm} action="/action_page.php">
-                <input className={st.sidebarInput} type="text" placeholder="Enter a name" />
+                <input className={st.sidebarInput} id="text" type="text" placeholder="Enter a name" />
                 <img className={st.sidebarSearch} src={VectorSearch} alt="search" />
             </form>
         </div>

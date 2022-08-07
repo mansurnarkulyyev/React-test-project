@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addPostActionCreator, updateNewPostText } from "Redux/future-reducer";
 // import StoreContext from "StoreContext";
 
-import MyPost from "./MyPost";
+import MyPost from "./MyFuturePosts";
 
 
 // const MyPostContainer = () => {

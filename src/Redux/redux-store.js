@@ -16,7 +16,8 @@ let reducers = combineReducers({
     usersPage: usersReducer, //usersReducer приходит с users-reducer.js
     todosPage: todosReducer,
     commentsPage: commentsReducer,
-    auth:authReducer,
+    auth: authReducer,
+    // form:formReducer,
 })
 //futurePage, dialogspage,sidebar,usersPage, это все ветки от глобального
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

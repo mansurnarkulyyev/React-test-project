@@ -37,15 +37,3 @@ return instance.get(`users?_page=${currentPage}&_limit=${pageSize}`)
 }
 
 
-// export default usersAPI;
-
-
-
-// export const getTodosFunc = (currentPage = 1, pageSize = 10) => {
-//     instance.get(`todos?_page=${currentPage}&_limit=${pageSize}`)
-//     .then(response => {
-//         return response.data; //response вернет promise
-//     })
-// }
-
-// export default getTodosFunc;

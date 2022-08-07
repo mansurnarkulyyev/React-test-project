@@ -28,7 +28,7 @@ input::-ms-clear {
   display: none;
 }
 
-input[type="text"] {
+#text {
   display: inline-block;
   box-shadow: none;
   background-color: transparent;

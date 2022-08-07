@@ -1,6 +1,6 @@
 import React from "react";
 
-import st from 'components/Main/FuturePlans/MyPost/Post/Post.module.css';
+import st from 'components/Main/FuturePlans/MyFuturePosts/Post/Post.module.css';
 
 const Post = (props) => {
   return (

@@ -19,17 +19,17 @@ const Dialogs = (props) => {
     <Messages key={el.id} message={el.message} id={el.id} />
   ));
 
-  let newMessageBody = state.newMessageBody;
+  // let newMessageBody = state.newMessageBody;
 
-  let onSendMessage = () => {
-    props.sendMessage();
-  }
+  // let onSendMessage = () => {
+  //   props.sendMessage();
+  // }
 
-  let onNewMessageChange = (e) => {
-    e.preventDefault();
-    let body = e.target.value;
-    props.updateNewMessageBody(body);
-  }
+  // let onNewMessageChange = (e) => {
+  //   e.preventDefault();
+  //   let body = e.target.value;
+  //   props.updateNewMessageBody(body);
+  // }
 
 
   if (props.isAuth === false) return <Navigate to={"/login"} />
@@ -41,14 +41,27 @@ const Dialogs = (props) => {
       <ul className={st.team}>{dialogsElements}</ul>
       <div className={st.messages}>
         <div>{messageElements}</div>
-        <div>
-          <div><textarea value={newMessageBody}
-            onChange={onNewMessageChange}
-            placeholder="Enter your message"></textarea></div>
-          <div><button onClick={onSendMessage}>send</button></div>
-        </div>
+        <AddMessageForm />
       </div>
     </div>
   );
 };
+
+
+
+const AddMessageForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <div>
+        <input
+          name=" newMessageBody"
+          placeholder="Enter your message"
+
+        />
+      </div>
+      <div><button>send</button></div>
+    </form>
+  )
+}
+
 export default Dialogs;

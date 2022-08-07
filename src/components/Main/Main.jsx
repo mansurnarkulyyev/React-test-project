@@ -17,6 +17,9 @@ import MyPastContainer from "./MyPast/MyPastContainer";
 import FuturePlansContainer from "./FuturePlans/FuturePlansContainer";
 import HeaderContainer from "./Header/HeaderContainer";
 import LoginPage from "components/Login";
+// import MyPostsList from "./MyPostsList/MyPostsList";
+// import Projects from "./Projects";
+import ProjectsContainer from "./Projects/ProjectsContainer";
 // import FuturePlans from "./FuturePlans";
 // import store from "Redux/state";
 
@@ -26,8 +29,10 @@ const Main = () => {
       {/* <Sidebar /> */}
       <HeaderContainer />
       <Routes>
+        {/* <Switch> */}
         <Route path="/navbar" exact element={<Navbar />} />
         <Route path="/myPast" element={<MyPastContainer />} />
+        {/* <Route path="/posts" element={<MyPostsList />} /> */}
         <Route
           path="/login"
           element={<LoginPage />} />
@@ -44,6 +49,7 @@ const Main = () => {
             />
           }
         />
+        <Route path="/projects" element={<ProjectsContainer />} />
         <Route
           path="/future/:userId"
           element={
@@ -72,6 +78,7 @@ const Main = () => {
 
 
         <Route path="*" element={<NotFoundPage />} />
+        {/* </Switch> */}
       </Routes>
     </main >
   );

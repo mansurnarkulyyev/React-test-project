@@ -1,5 +1,6 @@
 import Preloader from 'components/commons/Preloader';
 import React from 'react';
+import FutureStatus from './FutureStatus';
 
 const FutureInfo = (props) => {
     // debugger
@@ -27,7 +28,7 @@ const FutureInfo = (props) => {
                     </li>)
             }      </ul> */}
             {props.comments.body}
-
+            <FutureStatus status={'hello my friend'} />
 
 
         </div>

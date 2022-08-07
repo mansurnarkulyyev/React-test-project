@@ -1,0 +1,14 @@
+.searchInput {
+    background: none;
+    padding: 8px 0px 8px 0px;
+    margin-top: 8px;
+    opacity: 0.8;
+    width: 350px;
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+}

@@ -1,8 +1,8 @@
 {
-  "name": "react-test-project",
+  "name": "Writing-Dashboard",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mansurnarkulyyev.github.io/react-test-project.git",
+  "homepage": "https://mansurnarkulyyev.github.io/Writing-Dashboard",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

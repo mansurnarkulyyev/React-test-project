@@ -1,8 +1,8 @@
 import React from "react";
-import Post from "components/Main/FuturePlans/MyPost/Post/Post";
+import Post from "components/Main/FuturePlans/MyFuturePosts/Post/Post";
 // import { addPostActionCreator, updateNewPostText } from "Redux/future-reducer";
 
-import st from "components/Main/FuturePlans/MyPost/MyPost.module.css";
+import st from "components/Main/FuturePlans/MyFuturePosts/MyFuturePosts.module.css";
 
 
 const MyPost = (props) => {
